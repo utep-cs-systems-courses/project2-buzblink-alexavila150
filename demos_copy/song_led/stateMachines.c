@@ -22,6 +22,18 @@ char toggle_red()		/* always toggle! */
   return 1;			/* always changes an led */
 }
 
+void red_turn_on(){
+  red_on = 1;
+  led_changed = 1;
+  led_update();
+}
+
+void red_off(){
+  red_on = 0;
+  led_changed = 1;
+  led_update();
+}
+
 char toggle_green()	/* only toggle green if red is on!  */
 {
   char changed = 0;
@@ -30,6 +42,18 @@ char toggle_green()	/* only toggle green if red is on!  */
     changed = 1;
   }
   return changed;
+}
+
+void green_turn_on(){
+  green_on = 1;
+  led_changed = 1;
+  led_update();
+}
+
+void green_off(){
+  green_on = 0;
+  led_changed = 1;
+  led_update();
 }
 
 void incrementFrequency(){
