@@ -9,7 +9,7 @@ switch_update_interrupt_sense()
 {
   char p1val = P1IN;
   /* update switch interrupt to detect changes from current buttons */
-  P1IES |= (p1val & SWITCHES);	/* if switch up, sense down */
+  P1IES |= (p1val &  SWITCHES);	/* if switch up, sense down */
   P1IES &= (p1val | ~SWITCHES);	/* if switch down, sense up */
   return p1val;
 }
@@ -29,7 +29,21 @@ void
 switch_interrupt_handler()
 {
   char p1val = switch_update_interrupt_sense();
-  switch_state_down = (p1val & SW1) ? 0 : 1; /* 0 when SW1 is up */
-  switch_state_changed = 1;
-  led_update();
+  static char state = 0;
+  switch(state){
+  case 0:
+    switch_state_down = ~switch_state_down; /* 0 when SW1 is up */
+    switch_state_changed = 1;
+    led_update();
+    state = 1;
+    break;
+
+  case 1:
+    state = 0;
+    break;
+  }
+  
+  //switch_state_down = (p1val & SW1) ? 0 : 1; /* 0 when SW1 is up */
+  //switch_state_changed = 1;
+  //led_update();
 }
