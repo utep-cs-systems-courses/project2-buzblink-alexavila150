@@ -4,6 +4,7 @@
 
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
+  rand_num = (rand_num + 1) % 2;
   static int blink_count = 0;
   static int index = 0;
   

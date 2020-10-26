@@ -1,0 +1,1350 @@
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+make: *** No rule to make target 'button.elf', needed by 'load'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+make: *** No rule to make target 'button.elf', needed by 'load'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 876 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h   main.elf  p1_interrupt_handler.c  stateMachines.c  switches.h
+buzzer.h  led.o   main.o    p1_interrupt_handler.o  stateMachines.h  switches.o
+led.c     main.c  Makefile  README.md               switches.c       wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        switches.h
+buzzer.h  led.o     Makefile                stateMachines.c  switches.o
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.h  wdInterruptHamndler.c
+led.c     main.elf  p1_interrupt_handler.o  switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make laod
+make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.h  wdInterruptHamndler.c
+led.c     main.elf  p1_interrupt_handler.o  switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+If 'buzzer.o' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf buzzer.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'led.c' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf led.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> bash: syntax error near unexpected token `newline'
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make laod
+make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make l
+make: *** No rule to make target 'l'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load 
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+bash: syntax error near unexpected token `('
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'red_on' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf red_on
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If '^~~~~~' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf ^~~~~~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'red_dim' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf red_dim
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> bash: syntax error near unexpected token `('
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'led_changed' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf led_changed
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If '^~~~~~~~~~~' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf ^~~~~~~~~~~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'leds_changed' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf leds_changed
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> bash: builtin: No such file or directory
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> bash: syntax error near unexpected token `newline'
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        switches.h
+buzzer.h  led.o     Makefile                stateMachines.c  switches.o
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+led.c     main.elf  p1_interrupt_handler.o  switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        switches.h
+buzzer.h  led.o     Makefile                stateMachines.c  switches.o
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+led.c     main.elf  p1_interrupt_handler.o  switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:11:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:25:7: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+   if (red_on) {
+       ^~~~~~
+       red_dim
+stateMachines.c:26:5: error: 'green_on' undeclared (first use in this function)
+     green_on ^= 1;
+     ^~~~~~~~
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.c   Makefile                README.md        switches.c
+buzzer.h  led.h   p1_interrupt_handler.c  stateMachines.c  switches.h
+buzzer.o  main.c  p1_interrupt_handler.o  stateMachines.h  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make loadl
+make: *** No rule to make target 'loadl'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make laod
+make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load 
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'toggle_red':
+stateMachines.c:11:13: error: lvalue required as left operand of assignment
+     red_dim = 1;
+             ^
+stateMachines.c:15:13: error: lvalue required as left operand of assignment
+     red_dim = 0;
+             ^
+stateMachines.c: In function 'toggle_green':
+stateMachines.c:26:5: error: 'green_dim' undeclared (first use in this function); did you mean 'red_dim'?
+     green_dim ^= 1;
+     ^~~~~~~~~
+     red_dim
+stateMachines.c:26:5: note: each undeclared identifier is reported only once for each function it appears in
+stateMachines.c: In function 'state_advance':
+stateMachines.c:43:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_bright':
+stateMachines.c:53:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 1;
+     ^~~~~~
+     red_dim
+stateMachines.c:71:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+stateMachines.c: In function 'red_dim':
+stateMachines.c:81:5: error: 'red_on' undeclared (first use in this function); did you mean 'red_dim'?
+     red_on = 0;
+     ^~~~~~
+     red_dim
+stateMachines.c:99:3: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+   led_changed = changed;
+   ^~~~~~~~~~~
+   leds_changed
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.c   Makefile                README.md        switches.c
+buzzer.h  led.h   p1_interrupt_handler.c  stateMachines.c  switches.h
+buzzer.o  main.c  p1_interrupt_handler.o  stateMachines.h  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+If 'make:' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf make:
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> bash: syntax error near unexpected token `newline'
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:23:5: error: 'led_changed' undeclared (first use in this function); did you mean 'leds_changed'?
+     led_changed = 1;
+     ^~~~~~~~~~~
+     leds_changed
+wdInterruptHandler.c:23:5: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/tmp/cck6wS9i.o: In function `WDT':
+wdInterruptHandler.c:(.text+0x42): undefined reference to `toggle_red'
+wdInterruptHandler.c:(.text+0x4a): undefined reference to `red_dim'
+wdInterruptHandler.c:(.text+0x52): undefined reference to `red_bright'
+wdInterruptHandler.c:(.text+0x58): undefined reference to `leds_changed'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 882 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git add .
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git commit -m "kinda merge everything"
+[master 150a760] kinda merge everything
+ 11 files changed, 42 insertions(+), 151 deletions(-)
+ create mode 100644 demos_copy/toy/buzzer.o
+ create mode 100644 demos_copy/toy/led.o
+ rename demos_copy/toy/{buttonMain.c => main.c} (100%)
+ create mode 100755 demos_copy/toy/main.elf
+ create mode 100644 demos_copy/toy/main.o
+ create mode 100644 demos_copy/toy/p1_interrupt_handler.o
+ rewrite demos_copy/toy/stateMachines.c (94%)
+ create mode 100644 demos_copy/toy/stateMachines.o
+ create mode 100644 demos_copy/toy/switches.o
+ rewrite demos_copy/toy/wdInterruptHandler.c (63%)
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        switches.c
+buzzer.h  led.o     Makefile                stateMachines.c  switches.h
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.h  switches.o
+led.c     main.elf  p1_interrupt_handler.o  stateMachines.o  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git push
+Username for 'https://github.com': alexavila150
+Password for 'https://alexavila150@github.com': mugiwara150
+
+Counting objects: 14, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (14/14), 6.66 KiB | 1.33 MiB/s, done.
+Total 14 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), completed with 5 local objects.        
+To https://github.com/utep-cs-systems-courses/project2-buzblink-alexavila150.git
+   e678037..150a760  master -> master
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        switches.c
+buzzer.h  led.o     Makefile                stateMachines.c  switches.h
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.h  switches.o
+led.c     main.elf  p1_interrupt_handler.o  stateMachines.o  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clena
+make: *** No rule to make target 'clena'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git add .
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git commit -m "clean files"
+[master 52cf973] clean files
+ 7 files changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 demos_copy/toy/buzzer.o
+ delete mode 100644 demos_copy/toy/led.o
+ delete mode 100755 demos_copy/toy/main.elf
+ delete mode 100644 demos_copy/toy/main.o
+ delete mode 100644 demos_copy/toy/p1_interrupt_handler.o
+ delete mode 100644 demos_copy/toy/stateMachines.o
+ delete mode 100644 demos_copy/toy/switches.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git push
+Username for 'https://github.com': alexavila150
+Password for 'https://alexavila150@github.com': mugiwara150
+
+Counting objects: 4, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 372 bytes | 372.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.        
+To https://github.com/utep-cs-systems-courses/project2-buzblink-alexavila150.git
+   150a760..52cf973  master -> master
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.c  switches.h
+buzzer.h  main.c    README.md               stateMachines.h  wdInterruptHandler.c
+led.c     Makefile  #*shell*#               switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.c  switches.h
+buzzer.h  main.c    README.md               stateMachines.h  wdInterruptHandler.c
+led.c     Makefile  #*shell*#               switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+led.c: In function 'led_init':
+led.c:9:4: error: invalid preprocessing directive #led_update
+   #led_update();
+    ^~~~~~~~~~
+make: *** [<builtin>: led.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.c   Makefile                README.md        stateMachines.h  switches.h
+buzzer.h  led.h   p1_interrupt_handler.c  #*shell*#        stateMachines.o  wdInterruptHandler.c
+buzzer.o  main.c  p1_interrupt_handler.o  stateMachines.c  switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:17:16: error: expected ';' before ':' token
+       state = 2:
+                ^
+                ;
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1130 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make laod
+make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1130 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1124 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git add .
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git commit -m "learned lighting bending"
+[master 6b23d04] learned lighting bending
+ 13 files changed, 713 insertions(+), 6 deletions(-)
+ create mode 100644 demos_copy/toy/#*shell*#
+ create mode 120000 demos_copy/toy/.#*shell*
+ create mode 100644 demos_copy/toy/buzzer.o
+ create mode 100644 demos_copy/toy/led.o
+ create mode 100755 demos_copy/toy/main.elf
+ create mode 100644 demos_copy/toy/main.o
+ create mode 100644 demos_copy/toy/p1_interrupt_handler.o
+ create mode 100644 demos_copy/toy/stateMachines.o
+ create mode 100644 demos_copy/toy/switches.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git add .
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git commit -m "learned light bending"
+[master f863bca] learned light bending
+ 8 files changed, 660 deletions(-)
+ delete mode 100644 demos_copy/toy/#*shell*#
+ delete mode 100644 demos_copy/toy/buzzer.o
+ delete mode 100644 demos_copy/toy/led.o
+ delete mode 100755 demos_copy/toy/main.elf
+ delete mode 100644 demos_copy/toy/main.o
+ delete mode 100644 demos_copy/toy/p1_interrupt_handler.o
+ delete mode 100644 demos_copy/toy/stateMachines.o
+ delete mode 100644 demos_copy/toy/switches.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git push
+Username for 'https://github.com': alexavila150
+Password for 'https://alexavila150@github.com': mugiwara150
+
+Counting objects: 21, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (21/21), 10.55 KiB | 900.00 KiB/s, done.
+Total 21 (delta 10), reused 0 (delta 0)
+remote: Resolving deltas: 100% (10/10), completed with 5 local objects.        
+To https://github.com/utep-cs-systems-courses/project2-buzblink-alexavila150.git
+   52cf973..f863bca  master -> master
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+In file included from stateMachines.c:2:
+stateMachines.h:4:5: error: expected identifier or '(' before '[' token
+ char[5] sequence;
+     ^
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1124 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1124 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/tmp/ccMPNQaU.o:(.data+0x0): multiple definition of `sequence'
+stateMachines.o:(.data+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/tmp/ccbp06CD.o:(.data+0x0): multiple definition of `sequence'
+stateMachines.o:(.data+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/tmp/ccvZRDVc.o:(.data+0x0): multiple definition of `sequence'
+stateMachines.o:(.data+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1124 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'state_init':
+stateMachines.c:7:14: error: expected expression before '{' token
+   sequence = {0, 0, 0, 0, 0};
+              ^
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+In file included from stateMachines.c:2:
+stateMachines.h:5:15: error: 'sequence_lenght' undeclared here (not in a function); did you mean 'sequence_length'?
+ char sequence[sequence_lenght];
+               ^~~~~~~~~~~~~~~
+               sequence_length
+stateMachines.c: In function 'state_init':
+stateMachines.c:7:14: error: expected expression before '{' token
+   sequence = {0, 0, 0, 0, 0};
+              ^
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'state_init':
+stateMachines.c:7:14: error: expected expression before '{' token
+   sequence = {0, 0, 0, 0, 0};
+              ^
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        stateMachines.o  wdInterruptHandler.c
+buzzer.h  led.o     Makefile                #*shell*#        switches.c
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.c  switches.h
+led.c     main.elf  p1_interrupt_handler.o  stateMachines.h  switches.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  #stateMachines.c#  switches.c
+buzzer.h  main.c    README.md               stateMachines.c    switches.h
+led.c     Makefile  #*shell*#               stateMachines.h    wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  #stateMachines.c#  switches.c
+buzzer.h  main.c    README.md               stateMachines.c    switches.h
+led.c     Makefile  #*shell*#               stateMachines.h    wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.c  switches.h
+buzzer.h  main.c    README.md               stateMachines.h  wdInterruptHandler.c
+led.c     Makefile  #*shell*#               switches.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+p1_interrupt_handler.c:4:10: fatal error: stateMachine.h: No such file or directory
+ #include "stateMachine.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [<builtin>: p1_interrupt_handler.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+p1_interrupt_handler.c:4:10: fatal error: stateMachine.h: No such file or directory
+ #include "stateMachine.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [<builtin>: p1_interrupt_handler.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:8:6: error: 'running_sequence' undeclared (first use in this function); did you mean 'add_to_sequence'?
+   if(running_sequence){
+      ^~~~~~~~~~~~~~~~
+      add_to_sequence
+wdInterruptHandler.c:8:6: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2880 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2888 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2880 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2902 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2910 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2930 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2930 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2942 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2950 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2938 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> pokemon
+If 'pokemon' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf pokemon
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        stateMachines.o  wdInterruptHandler.c
+buzzer.h  led.o     Makefile                #*shell*#        switches.c
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.c  switches.h
+led.c     main.elf  p1_interrupt_handler.o  stateMachines.h  switches.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+make 
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2908 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make 
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2908 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> 
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'For' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf For
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> If 'info:' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf info:
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> bash: syntax error near unexpected token `newline'
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2920 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+info: MSP430:  Flash/FRAM usage is 2916 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2912 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2912 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git add .
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git commit -m "simon sequence working"
+[master 2a10e78] simon sequence working
+ 7 files changed, 68 insertions(+), 28 deletions(-)
+ create mode 120000 demos_copy/toy/.#main.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> git push
+Username for 'https://github.com': alexavila150
+Password for 'https://alexavila150@github.com': mugiwara150
+
+Counting objects: 10, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 1.41 KiB | 720.00 KiB/s, done.
+Total 10 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.        
+To https://github.com/utep-cs-systems-courses/project2-buzblink-alexavila150.git
+   f863bca..2a10e78  master -> master
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2912 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2938 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+stateMachines.c: In function 'add_to_sequence':
+stateMachines.c:22:9: warning: implicit declaration of function 'time' [-Wimplicit-function-declaration]
+   srand(time(0));
+         ^~~~
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2912 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+main.c: In function 'main':
+main.c:14:3: warning: implicit declaration of function 'srand' [-Wimplicit-function-declaration]
+   srand(time(0));
+   ^~~~~
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+/opt/ti/msp430_gcc/bin/../lib/gcc/msp430-elf/8.2.0/../../../../msp430-elf/lib/430/libc.a(lib_a-gettimeofdayr.o): In function `.LVL2':
+(.text._gettimeofday_r+0xe): undefined reference to `gettimeofday'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: main.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2912 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 2912 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     main.o                  README.md        stateMachines.o  wdInterruptHandler.c
+buzzer.h  led.o     Makefile                #*shell*#        switches.c
+buzzer.o  main.c    p1_interrupt_handler.c  stateMachines.c  switches.h
+led.c     main.elf  p1_interrupt_handler.o  stateMachines.h  switches.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> ls
+buzzer.c  led.h     p1_interrupt_handler.c  stateMachines.h  wdInterruptHandler.c
+buzzer.h  main.c    README.md               switches.c
+led.c     Makefile  stateMachines.c         switches.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o switches.o switches.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1288 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o p1_interrupt_handler.o p1_interrupt_handler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o main.elf p1_interrupt_handler.o buzzer.o stateMachines.o wdInterruptHandler.c led.o switches.o main.o ../lib/libTimer.a
+msp430loader.sh main.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  main.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f main.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1284 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make clean
+rm -f *.o *.elf *# ~* *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/toy> make

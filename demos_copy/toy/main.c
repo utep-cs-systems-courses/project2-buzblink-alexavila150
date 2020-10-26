@@ -9,9 +9,10 @@ void main(void)
   configureClocks();
   switch_init();
   led_init();
-  state_init();
-  
+
   enableWDTInterrupts();
+
+  state_init();
   
   or_sr(0x18);  // CPU off, GIE on
 } 
