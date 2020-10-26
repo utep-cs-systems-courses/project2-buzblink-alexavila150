@@ -1,6 +1,7 @@
 #include <msp430.h>
 #include "led.h"
 #include "switches.h"
+#include "buzzer.h"
 
 void led_init()
 {
@@ -24,19 +25,27 @@ void led_update(){
 void turn_red_on()
 {
   P1OUT |= LED_RED;
+  red_on = 1;
+  buzzer_set_period(880);
 }
 
 void turn_red_off()
 {
   P1OUT &= ~LED_RED;
+  red_on = 0;
+  buzzer_set_period(0);
 }
 
 void turn_green_on()
 {
   P1OUT |= LED_GREEN;
+  green_on = 1;
+  buzzer_set_period(784);
 }
 
 void turn_green_off()
 {
   P1OUT &= ~LED_GREEN;
+  green_on = 0;
+  buzzer_set_period(0);
 }

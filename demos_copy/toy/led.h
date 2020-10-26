@@ -7,6 +7,9 @@
 #define LED_GREEN BIT0             // P1.6
 #define LEDS (BIT0 | BIT6)
 
+char red_on;                       //tells if red is on
+char green_on;                     //tells if green is on
+
 void led_init();		/* initialize LEDs */
 void led_update();		/* update leds */
 void turn_red_on();
