@@ -6,7 +6,8 @@ void led_init()
 {
   P1DIR |= LEDS;		// bits attached to leds are output
   switch_state_changed = 1;
-  led_update();
+  //led_update();
+  turn_red_on();
 }
 
 void led_update(){
@@ -22,3 +23,22 @@ void led_update(){
   switch_state_changed = 0;
 }
 
+void turn_red_on()
+{
+  P1OUT |= LED_RED;
+}
+
+void turn_red_off()
+{
+  P1OUT &= ~LED_RED;
+}
+
+void turn_green_on()
+{
+  P1OUT |= LED_GREEN;
+}
+
+void turn_green_off()
+{
+  P1OUT &= ~LED_GREEN;
+}
