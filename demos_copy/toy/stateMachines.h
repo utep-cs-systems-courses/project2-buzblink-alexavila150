@@ -1,9 +1,10 @@
 #ifndef stateMachine_included
 #define stateMachine_included
 
-void state_advance();
-char toggle_red();
-void red_dim();
-void red_bright();
+char sequence[5];
+char sequence_running;
+
+void state_init();
+void add_to_sequence();
 
 #endif // included
