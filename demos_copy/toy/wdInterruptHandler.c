@@ -3,8 +3,6 @@
 #include "led.h"
 #include "buzzer.h"
 
-char duration[51];
-int notes[51];  
 
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
@@ -56,8 +54,6 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   }
 
   if(song_playing){
-    turn_red_on();
-    turn_green_on();
     //change note every 200 miliseconds
     if(++blink_count == duration[state] * 50 && state < 51){
       state++;
