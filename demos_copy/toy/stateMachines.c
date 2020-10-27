@@ -13,13 +13,22 @@ void state_init()
   }
   sequence[5] = 3;
   sequence_running = 0;
+  note_index = 0;
+  blink_count = 0;
 }
 
 void add_to_sequence()
 {
   static char index = 0;
-  sequence[index++] = rand_num + 1;
+  sequence[index++] = blink_count % 2 + 1;
   sequence_running = 1;
+}
+
+void play_song()
+{
+  sequence_running = 0;
+  song_playing = 1;
+  note_index = 0;
 }
 
 
