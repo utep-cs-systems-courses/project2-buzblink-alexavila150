@@ -25,10 +25,8 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
 	  turn_green_on();
 	  break;
 	case 3:
-	  sequence_running = 0;
-	  led_index = 0;
-	  blink_count = 0;
-	  song_playing = 1;
+	  play_song();
+	  break;
 	}
       }else{
 	sequence_running = 0;

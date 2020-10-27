@@ -29,6 +29,7 @@ void play_song()
   sequence_running = 0;
   song_playing = 1;
   note_index = 0;
+  blink_count = 0;
 }
 
 
