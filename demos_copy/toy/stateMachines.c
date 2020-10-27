@@ -5,7 +5,6 @@
 #include "stateMachines.h"
 #include "led.h"
 
-
 void state_init()
 {
   for(int i = 0; i < 5; i++){
@@ -15,12 +14,13 @@ void state_init()
   sequence_running = 0;
   note_index = 0;
   blink_count = 0;
+  random_num = 0;
 }
 
 void add_to_sequence()
 {
   static char index = 0;
-  sequence[index++] = blink_count % 2 + 1;
+  sequence[index++] = random_num % 2 + 1;
   sequence_running = 1;
 }
 

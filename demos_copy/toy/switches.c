@@ -30,7 +30,6 @@ switch_init()			/* setup switch */
   P2DIR &= ~P2SWITCHES;
   switch_update_interrupt_sense();
   led_update();
-  turn_red_on();
 }
 
 void

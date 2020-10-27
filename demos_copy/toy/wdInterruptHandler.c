@@ -6,7 +6,7 @@
 
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
-  
+  random_num++;
   if(sequence_running){
     
     if(++blink_count == 1){
