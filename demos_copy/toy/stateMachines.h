@@ -16,6 +16,7 @@ char turn;
 
 void state_init();
 void add_to_sequence();
+void end_sequence();
 void play_song();
 
 #endif // included

@@ -7,11 +7,12 @@
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   random_num++;
+  //run the sequence of leds corresponding to the current turn
   if(sequence_running){
     
     if(++blink_count == 1){
       
-      if(led_index < 6){
+      if(led_index < turn){
 	switch(sequence[led_index++]){
 	case 0:
 	  sequence_running = 0;
@@ -37,11 +38,13 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
       }
     }
 
+    //turn leds off after half a second
     if(blink_count == 125){
       turn_red_off();
       turn_green_off();
     }
 
+    //restart blink count every second
     if(blink_count == 250){
       blink_count = 0;
     }

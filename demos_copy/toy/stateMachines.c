@@ -12,16 +12,32 @@ void state_init()
   }
   sequence[5] = 3;
   sequence_running = 0;
+  song_playing = 0;
+
+  led_index = 0;
   note_index = 0;
   blink_count = 0;
   random_num = 0;
+  turn = 0;
+  
+  
+  turn_red_off();
+  turn_green_off();
 }
 
 void add_to_sequence()
 {
-  static char index = 0;
-  sequence[index++] = random_num % 2 + 1;
+  sequence[turn++] = random_num % 2 + 1;
   sequence_running = 1;
+}
+
+void end_sequence()
+{
+  sequence_running = 0;
+  led_index = 0;
+  blink_count = 0;
+  turn_red_off();
+  turn_green_off();
 }
 
 void play_song()
