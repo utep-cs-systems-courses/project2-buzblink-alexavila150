@@ -11,30 +11,26 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   if(sequence_running){
     
     if(++blink_count == 1){
+
+      if(turn == 6){
+	play_song();
+	return;
+      }
       
       if(led_index < turn){
 	switch(sequence[led_index++]){
-	case 0:
-	  sequence_running = 0;
-	  led_index = 0;
-	  blink_count = 0;
-	  break;
 	case 1:
 	  turn_red_on();
 	  break;
 	case 2:
 	  turn_green_on();
 	  break;
-	case 3:
+	case 5:
 	  play_song();
 	  break;
 	}
       }else{
-	sequence_running = 0;
-	led_index = 0;
-	blink_count = 0;
-	turn_red_off();
-	turn_green_off();
+	end_sequence();
       }
     }
 
