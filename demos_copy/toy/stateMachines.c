@@ -21,7 +21,6 @@ void state_init()
   led_index = 0;
   note_index = 0;
   blink_count = 0;
-  random_num = 0;
   turn = 0;
   
   turn_red_off();
@@ -58,7 +57,8 @@ void add_to_player_sequence(char led)
 
 char compare_list()
 {
-  for(int i; i < 6; i++){
+  int i;
+  for(i = 0; i < 6; i++){
     if(sequence[i] != player_sequence[i] && player_sequence[i] != 0){
       return 0;
     }

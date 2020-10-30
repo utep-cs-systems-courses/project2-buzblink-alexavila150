@@ -9,14 +9,7 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
   //SW1 is pressed
   if(P2IFG & S1){
     P2IFG &= ~S1;
-    //play_song();
-    if(player_sequence[0] == 1){
-      turn_red_on();
-    }
-
-    if(player_sequence[1] == 2){
-      turn_green_on();
-    }
+    play_song();
   }
 
   //SW2 is pressed
@@ -25,7 +18,6 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
     add_to_player_sequence(2);
     if(!compare_list()){
       state_init();     //if the sequence is not true then restart the sequence
-      turn_green_on();
       return; 
     }
 
@@ -42,7 +34,6 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
     add_to_player_sequence(1);
     if(!compare_list()){
       state_init();     //if the sequence is not true then restart the sequence
-      turn_red_on();
       return;
     }
 
