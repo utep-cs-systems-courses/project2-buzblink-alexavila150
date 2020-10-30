@@ -28,6 +28,14 @@ void state_init()
   turn_green_off();
 }
 
+void reset_sequence()
+{
+  char temp_random = random_num;  //hold random number when reseting
+  state_init();
+  random_num = temp_random;
+  add_to_sequence();
+}
+
 void add_to_sequence()
 {
   sequence[turn++] = random_num % 2 + 1;

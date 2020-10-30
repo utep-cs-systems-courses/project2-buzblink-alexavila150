@@ -16,6 +16,7 @@ int blink_count;
 char turn;
 
 void state_init();
+void reset_sequence();
 void add_to_sequence();
 void end_sequence();
 void play_song();

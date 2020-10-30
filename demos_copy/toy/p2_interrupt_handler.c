@@ -17,7 +17,7 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
     P2IFG &= ~S2;
     add_to_player_sequence(2);
     if(!compare_list()){
-      state_init();     //if the sequence is not true then restart the sequence
+      reset_sequence();     //if the sequence is not true then restart the sequence
       return; 
     }
 
@@ -33,7 +33,7 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
     
     add_to_player_sequence(1);
     if(!compare_list()){
-      state_init();     //if the sequence is not true then restart the sequence
+      reset_sequence();     //if the sequence is not true then restart the sequence
       return;
     }
 
@@ -47,6 +47,6 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){
   //SW4 is pressed
   if(P2IFG & S4){
     P2IFG &= ~S4;
-    state_init();
+    reset_sequence();
   }
 }
