@@ -10,6 +10,11 @@ void state_init()
   for(int i = 0; i < 5; i++){
     sequence[i] = 0;
   }
+
+  for(int i = 0; i < 5; i++){
+    player_sequence[i] = 0;
+  }
+  
   sequence[5] = 3;
   sequence_running = 0;
   song_playing = 0;
@@ -48,7 +53,20 @@ void play_song()
   blink_count = 0;
 }
 
+void add_to_player_sequence(char led)
+{
+  player_sequence[led_index] = led;
+}
 
+char compare_list()
+{
+  for(int i; i < 6; i++){
+    if(sequence[i] != player_sequence[i] || player_sequence != 0){
+      return 0;
+    }
+  }
+  return 1;
+}
 
 
 
