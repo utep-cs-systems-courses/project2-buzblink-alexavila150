@@ -15,7 +15,6 @@ void state_init()
     player_sequence[i] = 0;
   }
   
-  sequence[5] = 3;
   sequence_running = 0;
   song_playing = 0;
 
@@ -24,7 +23,6 @@ void state_init()
   blink_count = 0;
   random_num = 0;
   turn = 0;
-  
   
   turn_red_off();
   turn_green_off();
@@ -55,13 +53,13 @@ void play_song()
 
 void add_to_player_sequence(char led)
 {
-  player_sequence[led_index] = led;
+  player_sequence[led_index++] = led;
 }
 
 char compare_list()
 {
   for(int i; i < 6; i++){
-    if(sequence[i] != player_sequence[i] || player_sequence != 0){
+    if(sequence[i] != player_sequence[i] && player_sequence[i] != 0){
       return 0;
     }
   }
