@@ -22,6 +22,7 @@ void state_init()
   note_index = 0;
   blink_count = 0;
   turn = 0;
+  random_num = 0;
   
   turn_red_off();
   turn_green_off();

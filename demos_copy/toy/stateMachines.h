@@ -8,7 +8,7 @@ extern const char duration[42];
 
 char sequence_running;     //tells if the light cycles is running or not
 char song_playing;
-unsigned char random_num = 0;  //generates random number by add 1 every WD interrupt
+unsigned char random_num;  //generates random number by add 1 every WD interrupt
 
 char note_index;
 char led_index;
