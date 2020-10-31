@@ -29,28 +29,12 @@ switch_init()			/* setup switch */
   P1DIR &= ~SWITCHES;		/* set switches' bits for input */
   P2DIR &= ~P2SWITCHES;
   switch_update_interrupt_sense();
-  led_update();
 }
 
 void
 switch_interrupt_handler()
 {
   char p1val = switch_update_interrupt_sense();
-  static char state = 0;
-  switch(state){
-  case 0:
-    switch_state_down = ~switch_state_down; /* 0 when SW1 is up */
-    switch_state_changed = 1;
-    led_update();
-    state = 1;
-    break;
-
-  case 1:
-    state = 0;
-    break;
-  }
-  
-  //switch_state_down = (p1val & SW1) ? 0 : 1; /* 0 when SW1 is up */
-  //switch_state_changed = 1;
-  //led_update();
+  switch_state_down = (p1val & SW1) ? 0 : 1; /* 0 when SW1 is up */
+  switch_state_changed = 1;
 }
