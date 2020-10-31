@@ -1,0 +1,486 @@
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h
+buzzer.h  led.h  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h
+buzzer.h  led.h  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:10:10: error: expected expression before ')' token
+   switch(){
+          ^
+make: *** [<builtin>: wdInterruptHandler.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1018 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> /opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1018 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> 
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+error: MSP430: Error initializing emulator: No USB FET was found
+Failed: MSP430: Error initializing emulator: No USB FET was found
+
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> If 'Executing' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf Executing
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> bash: /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite: Permission denied
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> If 'For' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf For
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> If 'info:' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf info:
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> bash: syntax error near unexpected token `newline'
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1018 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1034 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1034 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1034 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1042 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1042 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:15:7: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+       toggle_green();
+       ^~~~~~~~~~~~
+       toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1042 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h       wdInterruptHandler.o
+buzzer.h  led.h  main.o    siren.elf        stateMachines.o
+buzzer.o  led.o  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1046 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> led
+If 'led' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf led
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:36:3: error: case label not within a switch statement
+   case 2:
+   ^~~~
+wdInterruptHandler.c:37:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+make: *** [<builtin>: wdInterruptHandler.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:36:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1062 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:35:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1062 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:35:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1108 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:35:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1108 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:35:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1106 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h       wdInterruptHandler.o
+buzzer.h  led.h  main.o    siren.elf        stateMachines.o
+buzzer.o  led.o  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make clean
+rm -f *.o *.elf *# *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h
+buzzer.h  led.h  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h
+buzzer.h  led.h  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:39:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+wdInterruptHandler.o:(.data+0x0): multiple definition of `hz'
+stateMachines.o:(.data+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: siren.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+wdInterruptHandler.o:(.data+0x0): multiple definition of `hz'
+stateMachines.o:(.data+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:15: siren.elf] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.o         wdInterruptHandler.o
+buzzer.h  led.h  main.o    stateMachines.c  #wdInterruptHandler.c#
+buzzer.o  led.o  Makefile  stateMachines.h  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+wdInterruptHandler.c: In function 'WDT':
+wdInterruptHandler.c:38:5: warning: implicit declaration of function 'toggle_green'; did you mean 'toggle_red'? [-Wimplicit-function-declaration]
+     toggle_green();
+     ^~~~~~~~~~~~
+     toggle_red
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1118 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> buzzer.h  led.h  main.o    stateMachines.c  #wdInterruptHandler.c#
+buzzer.o  led.o  Makefile  stateMachines.h  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> 
+If 'buzzer.h' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf buzzer.h
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> If 'buzzer.o' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf buzzer.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> bash: syntax error near unexpected token `newline'
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led>
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led>ls
+buzzer.c  led.c  main.c    README.md  stateMachines.c  wdInterruptHandler.c
+buzzer.h  led.h  main.o    #*shell*#  stateMachines.h  wdInterruptHandler.o
+buzzer.o  led.o  Makefile  siren.elf  stateMachines.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make clean
+rm -f *.o *.elf *# *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h
+buzzer.h  led.h  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make clena
+make: *** No rule to make target 'clena'.  Stop.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make clean
+rm -f *.o *.elf *# *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+In file included from stateMachines.c:3:
+led.h:8:22: error: 'red_on' redeclared as different kind of symbol
+ extern unsigned char red_on, green_on;
+                      ^~~~~~
+In file included from stateMachines.c:2:
+stateMachines.h:6:6: note: previous declaration of 'red_on' was here
+ void red_on();
+      ^~~~~~
+In file included from stateMachines.c:3:
+led.h:8:30: error: 'green_on' redeclared as different kind of symbol
+ extern unsigned char red_on, green_on;
+                              ^~~~~~~~
+In file included from stateMachines.c:2:
+stateMachines.h:8:6: note: previous declaration of 'green_on' was here
+ void green_on();
+      ^~~~~~~~
+make: *** [<builtin>: stateMachines.o] Error 1
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make clean
+rm -f *.o *.elf *# *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o stateMachines.o stateMachines.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o led.o led.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o buzzer.o buzzer.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1174 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1174 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o wdInterruptHandler.o wdInterruptHandler.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o siren.elf main.o stateMachines.o led.o wdInterruptHandler.o buzzer.o ../lib/libTimer.a
+msp430loader.sh siren.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  siren.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f siren.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 1162 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md  stateMachines.c  wdInterruptHandler.c
+buzzer.h  led.h  main.o    #*shell*#  stateMachines.h  wdInterruptHandler.o
+buzzer.o  led.o  Makefile  siren.elf  stateMachines.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> make clean
+rm -f *.o *.elf *# *~
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> ls
+buzzer.c  led.c  main.c    README.md        stateMachines.h
+buzzer.h  led.h  Makefile  stateMachines.c  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> git add .
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> git commit -m "finish siren"
+[master 2412d16] finish siren
+ 4 files changed, 62 insertions(+), 3 deletions(-)
+ create mode 120000 demos_copy/song_led/.#*shell*
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> git push
+Username for 'https://github.com': alexavila150
+Password for 'https://alexavila150@github.com': mugiwara150
+
+Counting objects: 8, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (8/8), 1.13 KiB | 1.13 MiB/s, done.
+Total 8 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.        
+To https://github.com/utep-cs-systems-courses/project2-buzblink-alexavila150.git
+   b9796c4..2412d16  master -> master
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	../buzzer_demo/buzzer.elf
+	../buzzer_demo/buzzer.o
+	../buzzer_demo/buzzerMain.o
+	../buzzer_demo/wdInterruptHandler.o
+
+nothing added to commit but untracked files present (use "git add" to track)
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	../buzzer_demo/buzzer.elf
+	../buzzer_demo/buzzer.o
+	../buzzer_demo/buzzerMain.o
+	../buzzer_demo/wdInterruptHandler.o
+
+nothing added to commit but untracked files present (use "git add" to track)
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/song_led> cd ..
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> ls
+blink_demo  button_demo  buzzer_demo  h  lib  Makefile  README.md  song_led  timerLib
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> cd buzzer_demo/
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/buzzer_demo> ls
+buzzer.c    buzzer.h      buzzerMain.o  Makefile   wdInterruptHandler.c
+buzzer.elf  buzzerMain.c  buzzer.o      README.md  wdInterruptHandler.o
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/buzzer_demo> make clean
+rm -f *.o *.elf *~ *#
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/buzzer_demo> ls
+buzzer.c  buzzer.h  buzzerMain.c  Makefile  README.md  wdInterruptHandler.c
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy/buzzer_demo> cd ..
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> ls
+blink_demo  button_demo  buzzer_demo  h  lib  Makefile  README.md  song_led  timerLib
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> 
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> 
+student@systems-vm:~/class/project2-buzblink-alexavila150/demos_copy> 
