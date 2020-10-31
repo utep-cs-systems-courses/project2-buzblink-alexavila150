@@ -49,3 +49,54 @@ void turn_green_off()
   green_on = 0;
   buzzer_set_period(0);
 }
+
+void turn_red_dim()
+{
+  static char state = 0;
+  switch(state){
+  case 0:
+    P1OUT &= ~LED_RED;
+    red_on = 0;
+    break;
+  case 3:
+    P1OUT |= LED_RED;
+    red_on = 1;
+    break;
+  }
+
+  state = (state + 1) % 4;
+}
+
+void turn_red_middle()
+{
+  static char state = 0;
+  switch(state){
+  case 0:
+    P1OUT |= LED_RED;
+    red_on = 1;
+    break;
+  case 2:
+    P1OUT &= ~LED_RED;
+    red_on = 0;
+    break;
+  }
+
+  state = (state + 1) % 4;
+}
+
+void turn_red_bright()
+{
+  static char state = 0;
+  switch(state){
+  case 0:
+    P1OUT |= LED_RED;
+    red_on = 1;
+    break;
+  case 3:
+    P1OUT &= ~LED_RED;
+    red_on = 0;
+    break;
+  }
+
+  state = (state + 1) % 4;
+}

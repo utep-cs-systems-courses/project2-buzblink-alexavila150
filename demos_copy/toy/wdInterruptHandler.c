@@ -9,14 +9,14 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   random_num++;
   //run the sequence of leds corresponding to the current turn
   if(sequence_running){
-    
+
     if(++blink_count == 1){
 
       if(turn == 6){
 	play_song();
 	return;
       }
-      
+
       if(led_index < turn){
 	switch(sequence[led_index++]){
 	case 1:
@@ -56,9 +56,25 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
       buzzer_set_period(0);
     }
 
+    if(note_index < 15){
+      turn_red_dim();
+      return;
+    }
+
+    if(note_index < 30){
+      turn_red_middle();
+      return;
+    }
+
+    if(note_index < 42){
+      turn_red_bright();
+      return;
+    }
+
     //end song
     if(note_index == 42){
       buzzer_set_period(0);
+      turn_red_off();
     }
   }
 }
