@@ -47,7 +47,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
     //change note every 200 miliseconds
     if(++blink_count == duration[note_index] * 50 && note_index < 42){
       note_index++;
-      buzzer_set_period(notes[note_index] * 2);
+      buzzer_set_period(2000000 / notes[note_index]);
       blink_count = 0;
     }
 
