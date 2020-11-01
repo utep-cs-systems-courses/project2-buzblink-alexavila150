@@ -1,6 +1,4 @@
-Project 2: Blinky-Buzzy Toy
-Simon Game Edition
-
+Project 2: Blinky-Buzzy Toy: Simon Game Edition
 ===========================
 
 
@@ -22,7 +20,7 @@ the game.
 2. Plug in your msp-430 to your computer and type make. This will autematically
 load your game into the msp-430
 
-3. To clean the build files in the src folder use make clean
+3. To clean the build files in the toy folder use make clean
 
 
 
