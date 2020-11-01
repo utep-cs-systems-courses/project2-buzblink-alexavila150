@@ -39,8 +39,8 @@ labeled S1-S4 and an extra button SW1 in the size that can be use as an extra fe
     think that green is the next in the sequence
 - **S3**: Similarly, press this button if you think that red is the next led
     in the sequence
-- **S4**: if you find the sequence a bit to hard then use this button and the
-    sequence will start again from level 1
+- **S4**: press to start a new game if you find the sequence and it also
+    restarts a current game
 
 - **SW1**: if you want to go easy mode then press this botton and the next
     sequence will just play automatically
