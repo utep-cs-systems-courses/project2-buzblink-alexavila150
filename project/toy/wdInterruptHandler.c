@@ -11,12 +11,13 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   if(sequence_running){
 
     if(++blink_count == 1){
-
+      // if it is the last turn then play the winner song
       if(turn == 6){
 	play_song();
 	return;
       }
 
+      //play the corresponding led in sequence every second
       if(led_index < turn){
 	switch(sequence[led_index++]){
 	case 1:
@@ -56,16 +57,19 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
       buzzer_set_period(0);
     }
 
+    //first 15 seconds led is dim
     if(note_index < 15){
       turn_red_dim();
       return;
     }
 
+    //next 15 seconds led is simi dim
     if(note_index < 30){
       turn_red_middle();
       return;
     }
 
+    //led is bright at the end of the song
     if(note_index < 42){
       turn_red_bright();
       return;

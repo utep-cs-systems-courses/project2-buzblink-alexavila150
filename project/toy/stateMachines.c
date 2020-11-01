@@ -1,10 +1,8 @@
 #include <msp430.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include "stateMachines.h"
 #include "led.h"
 
+//sets all the variables and arrays to 0 to start a game in a fresh state
 void state_init()
 {
   for(int i = 0; i < 5; i++){
@@ -28,6 +26,7 @@ void state_init()
   turn_green_off();
 }
 
+//restarts state and initiates the first led for the player to start again
 void reset_sequence()
 {
   char temp_random = random_num;  //hold random number when reseting
@@ -36,12 +35,14 @@ void reset_sequence()
   add_to_sequence();
 }
 
+//adds a random 1 or 2 to the sequence of leds
 void add_to_sequence()
 {
   sequence[turn++] = random_num % 2 + 1;
   sequence_running = 1;
 }
 
+//stops the sequence from running
 void end_sequence()
 {
   sequence_running = 0;
@@ -51,6 +52,7 @@ void end_sequence()
   turn_green_off();
 }
 
+//starts playing the song from the beggining
 void play_song()
 {
   sequence_running = 0;
@@ -59,11 +61,13 @@ void play_song()
   blink_count = 0;
 }
 
+//add an led flag to the user's sequence
 void add_to_player_sequence(char led)
 {
   player_sequence[led_index++] = led;
 }
 
+//compares is the user has had a correct sequence so far
 char compare_list()
 {
   int i;

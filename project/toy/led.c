@@ -9,19 +9,7 @@ void led_init()
   switch_state_changed = 1;
 }
 
-//void led_update(){
-//if (switch_state_changed) {
-//  char ledFlags = 0; /* by default, no LEDs on */
-//
-//  ledFlags |= switch_state_down ? LED_GREEN : 0;
-//  ledFlags |= switch_state_down ? 0 : LED_RED;
-//
-//  P1OUT &= (0xff - LEDS) | ledFlags; // clear bits for off leds
-//  P1OUT |= ledFlags;         // set bits for on leds
-//}
-//switch_state_changed = 0;
-//}
-
+//turns red on with unique sound
 void turn_red_on()
 {
   P1OUT |= LED_RED;
@@ -29,6 +17,7 @@ void turn_red_on()
   buzzer_set_period(880);
 }
 
+//turns led and sound off
 void turn_red_off()
 {
   P1OUT &= ~LED_RED;
@@ -36,6 +25,7 @@ void turn_red_off()
   buzzer_set_period(0);
 }
 
+//turns green and unique sound on
 void turn_green_on()
 {
   P1OUT |= LED_GREEN;
@@ -43,6 +33,7 @@ void turn_green_on()
   buzzer_set_period(784);
 }
 
+//turns led and sound off
 void turn_green_off()
 {
   P1OUT &= ~LED_GREEN;
@@ -50,6 +41,7 @@ void turn_green_off()
   buzzer_set_period(0);
 }
 
+//call function multiple times to produce a dim red light
 void turn_red_dim()
 {
   static char state = 0;
@@ -67,6 +59,7 @@ void turn_red_dim()
   state = (state + 1) % 4;
 }
 
+//call function multiple times to produce a semi dim light
 void turn_red_middle()
 {
   static char state = 0;
@@ -84,6 +77,7 @@ void turn_red_middle()
   state = (state + 1) % 4;
 }
 
+//call function multiple times to produce a bright light
 void turn_red_bright()
 {
   static char state = 0;
